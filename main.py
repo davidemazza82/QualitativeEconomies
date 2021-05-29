@@ -44,7 +44,9 @@ def programpcex():
   print(G[0], G[1], G[2], G[N-1])
   print(Y[0], Y[1], Y[2], Y[N-1])
   print(T[0], T[1],	T[2], T[N-1])
-
+  print(BH[0], BH[1],	BH[2], BH[N-1])
+  print(HH[0], HH[1],	HH[2], HH[N-1])
+  
 
 # Chapter 4
 def programpc():
@@ -155,12 +157,11 @@ def simex():
   H = np.zeros(N) # vettore ricchezza
   DH = np.zeros(N) # vettore incrememnto ricchezza ad ogni ciclo
 
-  print("Ciao")
-  for t in range(1,N):
-    if t >= 2: # Il risparmio iniziale ad ogni periodo è uguale al risparmio finale del period precedente. Il primo deve essere forzato a zero per cui il ciclo if
+  for t in range(0,N):
+    if t >= 1: # Il risparmio iniziale ad ogni periodo è uguale al risparmio finale del period precedente. Il primo deve essere forzato a zero per cui il ciclo if
       YDE[t] = YD[t-1]
       
-    elif t==1:
+    elif t == 0:
       YDE[t] = G[t] - theta * G[t]
         
     C[t] = alpha1 * YDE[t] + alpha2 * H[t-1] # Determinazione del consume al prossimo periodo. È un numero sempre inferior a TD(i)
@@ -174,7 +175,7 @@ def simex():
     
     SIM=[G, Y, T, C, YDE, DH, H] # matrice con tutti I termini precedent. Una riga è un ciclo i
  
-  print(SIM[0])
+  print(G[N-1], Y[N-1], T[N-1], YDE[N-1], DH[N-1], H[N-1])
   
 
 # Chapter 3
